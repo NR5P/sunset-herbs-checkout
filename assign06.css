@@ -38,10 +38,11 @@ label {
 
 input {
     margin-bottom: 20px;
-    height: 20px;
+    height: 25px;
     border-radius: 5px;
     background-color: rgb(237, 229, 37);
     display: inline-block;
+    border: none;
 }
 
 textarea {
@@ -85,6 +86,9 @@ td > input {
 }
 .quantity-entry {
     width: 30px;
+}
+table img {
+    margin-left: 10px;
 }
 
 tr:nth-child(odd) {
