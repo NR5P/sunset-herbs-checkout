@@ -12,24 +12,32 @@
 
         <div id="container">
         <form>
-            <label for="first_name">First Name</label>
-            <input type="text" name="first_name" id="first_name" placeholder="John">
+            <div>
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" placeholder="John">
+            </div>
 
-            <label for="last_name">Last Name</label>
-            <input type="text" name="last_name" id="last_name" placeholder="Doe">
+            <div>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" placeholder="Doe">
+            </div>
 
-            <label for="address">Address</label>
-            <textarea rows="4" cols="50"></textarea>
+            <div id="address-div">
+                <label for="address">Address</label>
+                <textarea rows="4" cols="50"></textarea>
+            </div>
 
-            <label for="phone">Phone Number</label>
-            <!--requires validation-->
-            <input type="text" name="phone" id="phone" placeholder="ex: 222-222-2222">
+            <div>
+                <label for="phone">Phone Number</label>
+                <!--requires validation-->
+                <input type="text" name="phone" id="phone" placeholder="ex: 222-222-2222">
+            </div>
 
             <!--Table with check boxes to display 4 or more items to purchase along with their 
                 corresponding purchase price (use check boxes to allow selection of the items 
                 you wish to purchase). Give the checkboxes the name "item_0", "item_1", etc.-->
             <table>
-                <caption>Please Select Herbs</caption>
+                <caption>Let us know if you have any questions</caption>
                 <tr>
                     <th>Select</th>
                     <th>Item</th>
@@ -37,56 +45,77 @@
                     <th></th> <!--image of item-->
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="item_0"></th>
-                    <td>Mint</th>
-                    <td>$3.00</th>
-                    <td><img src="./images/mint.jpg" alt="mint plant" height="50px" width="50px"></th>
+                    <td><input type="checkbox" name="item_0"></td>
+                    <td>Mint</td>
+                    <td>$3.00</td>
+                    <td><img src="./images/mint.jpg" alt="mint plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="item_0"></th>
-                    <td>Sage</th>
-                    <td>$4.00</th>
-                    <td><img src="./images/sage.jpg" alt="sage plant" height="50px" width="50px"></th>
+                    <td><input type="checkbox" name="item_0"></td>
+                    <td>Sage</td>
+                    <td>$4.00</td>
+                    <td><img src="./images/sage.jpg" alt="sage plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="item_0" ></th>
-                    <td>Rosemary</th>
-                    <td>$3.50</th>
-                    <td><img src="./images/rosemary.jpg" alt="rosemanry plant" height="50px" width="50px"></th>
+                    <td><input type="checkbox" name="item_0" ></td>
+                    <td>Rosemary</td>
+                    <td>$3.50</td>
+                    <td><img src="./images/rosemary.jpg" alt="rosemanry plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="item_0"></th>
-                    <td>Thyme</th>
-                    <td>$2.50</th>
-                    <td><img src="./images/thyme.jpg" alt="thyme plant" height="50px" width="50px"></th>
+                    <td><input type="checkbox" name="item_0"></td>
+                    <td>Thyme</td>
+                    <td>$2.50</td>
+                    <td><img src="./images/thyme.jpg" alt="thyme plant" height="50px" width="50px"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><label for="total">Total</label></td>
+                    <td><input type="text" name="total" id="total-output" readonly></td>
+                    <td></td>
                 </tr>
             </table>
 
-            <label for="total">Total</label>
-            <input type="text" name="total" readonly>
-
             <fieldset>
-                <input type="radio" name="credit-card" value="visa">Visa<br>
-                <input type="radio" name="credit-card" value="master card">Master Card<br>
-                <input type="radio" name="credit-card" value="american express">American Express<br>
+                <label>
+                    <input type="radio" name="credit-card" value="visa"><br>
+                    <img src="./images/icons8-visa-48.png" class="card-img">
+                </label>
+
+                <label>
+                    <input type="radio" name="credit-card" value="discover-card"><br>
+                    <img src="./images/icons8-discover-48.png" class="card-img">
+                </label>
+
+                <label>
+                    <input type="radio" name="credit-card" value="american-express"><br>
+                    <img src="./images/icons8-american-express-48.png" class="card-img">
+                </label>
+
+                <div>
+                    <!--requires validation must be 16 digits in length-->
+                    <label for="credit_card">Card Number</label>
+                    <input type="text" name="credit_card">
+                </div>
+
+                <div>
+                    <!--requires validation valid mont(1-12), and valid year (> 2017)-->
+                    <label for="exp_date">Expiration Date</label>
+                    <input type="text" name="exp_date">
+                </div>
             </fieldset>
 
-            <!--requires validation must be 16 digits in length-->
-            <label for="credit_card">Card Number</label>
-            <input type="text" name="credit_card">
 
-            <!--requires validation valid mont(1-12), and valid year (> 2017)-->
-            <label for="exp_date">Expiration Date</label>
-            <input type="text" name="exp_date">
-
-            <!--clear all fields and set focus to first name-->
-            <button type="reset" name="reset">Reset</button>
-            
-            <!--Validate that the first name, last name, address, phone, credit card, and 
-                expiration date fields all have been filled out. If any field is missing 
-                text return false and set the focus to the first missing text field. Give 
-                this field the name "validate". -->
-            <button name="validate">Submit</button>
+            <div id="button-set">
+                <!--clear all fields and set focus to first name-->
+                <button type="reset" name="reset">Reset</button>
+                
+                <!--Validate that the first name, last name, address, phone, credit card, and 
+                    expiration date fields all have been filled out. If any field is missing 
+                    text return false and set the focus to the first missing text field. Give 
+                    this field the name "validate". -->
+                <button name="validate">Submit</button>
+            </div>
         </form>        
         </div>
 
