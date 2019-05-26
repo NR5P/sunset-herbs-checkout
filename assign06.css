@@ -83,6 +83,9 @@ fieldset > div {
 td > input {
     margin: 5px;
 }
+.quantity-entry {
+    width: 30px;
+}
 
 tr:nth-child(odd) {
     background-color: rgb(164, 102, 79);
