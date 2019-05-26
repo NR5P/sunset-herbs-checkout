@@ -1,0 +1,37 @@
+!<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="assign06.css">
+    </head>
+    <body>
+        <form>
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" placeholder="first name">
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" placeholder="last name">
+
+            <label for="address">Address</label>
+            <textarea rows="4" cols="50"></textarea>
+
+            <label for="phone">Phone Number</label>
+            <!--requires validation-->
+            <input type="text" name="phone" id="phone" placeholder="ex: 222-222-2222">
+
+            <!--Table with check boxes to display 4 or more items to purchase along with their 
+                corresponding purchase price (use check boxes to allow selection of the items 
+                you wish to purchase). Give the checkboxes the name "item_0", "item_1", etc.-->
+            <table>
+                <caption>Shop</caption>
+                <tr>
+                    <th>Select</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+            </table>
+        </form>        
+
+        <script src="assign06.js"></script>
+    </body>
+</html>
