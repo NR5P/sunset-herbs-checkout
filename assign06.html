@@ -1,10 +1,16 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
     <head>
         <meta charset="utf-8">
         <title></title>
         <link rel="stylesheet" href="assign06.css">
+        <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="banner-area">
+            <h1>Sunrise Herbs</h1>
+        </div>
+
+        <div id="container">
         <form>
             <label for="first_name">First Name</label>
             <input type="text" name="first_name" id="first_name" placeholder="first name">
@@ -23,14 +29,66 @@
                 corresponding purchase price (use check boxes to allow selection of the items 
                 you wish to purchase). Give the checkboxes the name "item_0", "item_1", etc.-->
             <table>
-                <caption>Shop</caption>
+                <caption>Please Select Herbs</caption>
                 <tr>
                     <th>Select</th>
                     <th>Item</th>
                     <th>Price</th>
+                    <th></th> <!--image of item-->
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="item_0"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="item_0"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="item_0"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="item_0"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </table>
+
+            <label for="total">Total</label>
+            <input type="text" name="total" readonly>
+
+            <fieldset>
+                <input type="radio" name="credit-card" value="visa">Visa<br>
+                <input type="radio" name="credit-card" value="master card">Master Card<br>
+                <input type="radio" name="credit-card" value="american express">American Express<br>
+            </fieldset>
+
+            <!--requires validation must be 16 digits in length-->
+            <label for="credit_card">Card Number</label>
+            <input type="text" name="credit_card">
+
+            <!--requires validation valid mont(1-12), and valid year (> 2017)-->
+            <label for="exp_date">Expiration Date</label>
+            <input type="text" name="exp_date">
+
+            <!--clear all fields and set focus to first name-->
+            <button type="reset" name="reset">Reset</button>
+            
+            <!--Validate that the first name, last name, address, phone, credit card, and 
+                expiration date fields all have been filled out. If any field is missing 
+                text return false and set the focus to the first missing text field. Give 
+                this field the name "validate". -->
+            <button name="validate">Submit</button>
         </form>        
+        </div>
 
         <script src="assign06.js"></script>
     </body>

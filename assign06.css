@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 100;
+    font-family: 'Great Vibes', cursive;
+    color: rgb(75,134,216);
+    text-align: center;
+    padding: 40px 0;
+}
+
+#banner-area {
+    background-image: linear-gradient(rgb(237, 229, 37), rgb(164, 102, 55));
+}
+
+#container {
+    background-color: rgb(164, 102, 55);
+    height: 1000px;
+}
+
+form {
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+
+input {
+    display: block;
+    margin-bottom: 20px;
+}
