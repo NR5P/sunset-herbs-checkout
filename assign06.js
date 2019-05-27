@@ -1,7 +1,7 @@
 const submitButton = document.getElementById("submitButton");
 const reset = document.getElementById("reset");
 
-///////////////////////ONCLICK LISTENERS////////////////////////////
+///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
     calculateTotal();
 };
@@ -10,12 +10,26 @@ reset.onclick = function() {
 
 };
 
+document.getElementById("exp-date").oninput = function(e) {
+    expDate = document.getElementById("exp-date");
+    if (expDate.value.length == 2 && event.inputType != "deleteContentBackward") {
+        expDate.value += "-";
+    }
+}
+
 //////////////////////END ONCLICK LISTENERS/////////////////////////
 
 ///////////////////////VALIDATORS///////////////////////////////////
-function phoneNumberValidation(phoneNumber) {
+function phoneNumberValidation() {
+    let phoneNumber = document.getElementById("phone").value;
     let re = new RegExp("^\d{3}-\d{3}-\d{4}$");
     return re.test(phoneNumber) ? true : false;
+}
+
+function creditCardValidation() {
+    let cardNumber = document.getElementsByName("credit_card")[0].value;
+    let re = new RegExp("\d{16}");
+    return re.test(cardNumber ? true : false);
 }
 
 ///////////////////////END VALIDATORS///////////////////////////////
