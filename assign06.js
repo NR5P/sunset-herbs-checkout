@@ -3,13 +3,14 @@ const reset = document.getElementById("reset");
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
-    calculateTotal();
+    expirationDateValidation();
 };
 
 reset.onclick = function() {
 
 };
 
+// adds dash automatically as user types between month and year of exp date
 document.getElementById("exp-date").oninput = function(e) {
     expDate = document.getElementById("exp-date");
     if (expDate.value.length == 2 && event.inputType != "deleteContentBackward") {
@@ -17,7 +18,7 @@ document.getElementById("exp-date").oninput = function(e) {
     }
 }
 
-//////////////////////END ONCLICK LISTENERS/////////////////////////
+//////////////////////END LISTENERS///////////////////////////////////
 
 ///////////////////////VALIDATORS///////////////////////////////////
 function phoneNumberValidation() {
@@ -30,6 +31,14 @@ function creditCardValidation() {
     let cardNumber = document.getElementsByName("credit_card")[0].value;
     let re = new RegExp("\d{16}");
     return re.test(cardNumber ? true : false);
+}
+
+function expirationDateValidation() {
+    let expDate = document.getElementById("exp-date");
+    let expMonth = parseInt(expDate.value);
+    let expYear = parseInt(expDate.value.replace("\d\d-", "")); //TODO fix this
+    console.log(expMonth);
+    console.log(expYear);
 }
 
 ///////////////////////END VALIDATORS///////////////////////////////
