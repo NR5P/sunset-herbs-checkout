@@ -35,7 +35,8 @@ function calculateTotal() {
     Array.from(targetQuantityEntry).forEach(function (element, index) {
         total += element.value * parseFloat(targetPrice[index].innerText.replace("$", ""));
     })
-    return total;
+
+    return total.toFixed(2);
 }
 
 
