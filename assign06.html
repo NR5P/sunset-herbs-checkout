@@ -4,6 +4,7 @@
         <title></title>
         <link rel="stylesheet" href="assign06.css">
         <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="/images/mint.jpg">
     </head>
     <body>
         <div id="banner-area">
@@ -48,25 +49,25 @@
                     <td><input type="checkbox" name="item_0"></td>
                     <td><input type="text" class="quantity-entry"></td>
                     <td>Mint</td>
-                    <td>$3.00/oz<img src="./images/mint.jpg" alt="mint plant" height="50px" width="50px"></td>
+                    <td class="price-per-ounce">$3.00/oz<img src="./images/mint.jpg" alt="mint plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="item_0"></td>
                     <td><input type="text" class="quantity-entry"></td>
                     <td>Sage</td>
-                    <td>$4.00/oz<img src="./images/sage.jpg" alt="sage plant" height="50px" width="50px"></td>
+                    <td class="price-per-ounce">$4.00/oz<img src="./images/sage.jpg" alt="sage plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="item_0" ></td>
                     <td><input type="text" class="quantity-entry"></td>
                     <td>Rosemary</td>
-                    <td>$3.50/oz<img src="./images/rosemary.jpg" alt="rosemanry plant" height="50px" width="50px"></td>
+                    <td class="price-per-ounce">$3.50/oz<img src="./images/rosemary.jpg" alt="rosemanry plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="item_0"></td>
                     <td><input type="text" class="quantity-entry"></td>
                     <td>Thyme</td>
-                    <td>$2.50/oz<img src="./images/thyme.jpg" alt="thyme plant" height="50px" width="50px"></td>
+                    <td class="price-per-ounce">$2.50/oz<img src="./images/thyme.jpg" alt="thyme plant" height="50px" width="50px"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -108,13 +109,13 @@
 
             <div id="button-set">
                 <!--clear all fields and set focus to first name-->
-                <button type="reset" name="reset">Reset</button>
+                <button type="reset" name="reset" id="reset">Reset</button>
                 
                 <!--Validate that the first name, last name, address, phone, credit card, and 
                     expiration date fields all have been filled out. If any field is missing 
                     text return false and set the focus to the first missing text field. Give 
                     this field the name "validate". -->
-                <button name="validate" id="reset">Submit</button>
+                <button name="validate" id="submitButton">Submit</button>
             </div>
         </form>        
         </div>
