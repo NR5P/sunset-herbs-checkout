@@ -37,6 +37,12 @@ function phoneNumberValidation() {
     //let re = "/^\d{3}-\d{3}-\d{4}$/";
     if (/^\d{3}-\d{3}-\d{4}$/.test(phoneNumber.value) == true) {
         phoneNumber.style.border = "3px solid green";
+
+        const badEntryDiv = document.getElementById("phone-div");
+        console.log(badEntryDiv.children);
+        if (badEntryDiv.children[2].className == "bad-entry") {
+            badEntryDiv.removeChild(badEntryDiv.children[2]);
+        }
         return true;
     } else {
         const phoneDiv = document.getElementById("phone-div");
