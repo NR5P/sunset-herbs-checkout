@@ -3,11 +3,21 @@ const reset = document.getElementById("reset");
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
-    expirationDateValidation();
+
 };
 
 reset.onclick = function() {
+    document.getElementById("first_name").value = "";
+    document.getElementById("last_name").value = "";
+    document.getElementsByTagName("textarea").value = "";
+    document.getElementById("phone").value = "";
+    Array.from(document.getElementsByClassName("quantity-entry")).forEach(function(element) {
+        element.value = "";
+    })
+    document.getElementById("exp-date").value = "";
+    document.getElementsByName("credit_card").value = "";
 
+    document.getElementById("first_name").focus();
 };
 
 // adds dash automatically as user types between month and year of exp date
@@ -35,10 +45,13 @@ function creditCardValidation() {
 
 function expirationDateValidation() {
     let expDate = document.getElementById("exp-date");
-    let expMonth = parseInt(expDate.value);
-    let expYear = parseInt(expDate.value.replace("\d\d-", "")); //TODO fix this
-    console.log(expMonth);
-    console.log(expYear);
+    let expDateSplit = expDate.value.split("-");
+    let expMonth = parseInt(expDateSplit[0]);
+    let expYear = parseInt(expDateSplit[1]); //TODO fix this
+
+    if (expMonth > 0 && expMonth < 13 && expYear > 2017)
+        return true;
+    return false;
 }
 
 ///////////////////////END VALIDATORS///////////////////////////////
