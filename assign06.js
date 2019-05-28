@@ -3,7 +3,7 @@ const reset = document.getElementById("reset");
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
-
+    phoneNumberValidation();
 };
 
 reset.onclick = function() {
@@ -32,9 +32,24 @@ document.getElementById("exp-date").oninput = function(e) {
 
 ///////////////////////VALIDATORS///////////////////////////////////
 function phoneNumberValidation() {
-    let phoneNumber = document.getElementById("phone").value;
-    let re = new RegExp("^\d{3}-\d{3}-\d{4}$");
-    return re.test(phoneNumber) ? true : false;
+    let phoneNumber = document.getElementById("phone");
+    //let re = new RegExp("^\d{3}-\d{3}-\d{4}$");
+    //let re = "/^\d{3}-\d{3}-\d{4}$/";
+    if (/^\d{3}-\d{3}-\d{4}$/.test(phoneNumber.value) == true) {
+        phoneNumber.style.border = "3px solid green";
+        return true;
+    } else {
+        const phoneDiv = document.getElementById("phone-div");
+        phoneNumber.style.border = "3px solid red";
+        let warningElement = document.createElement("small");
+        warningElement.className += "bad-entry";
+        let warningText = document.createTextNode(
+                "phone number MUST be in the format 222-222-2222");
+        warningElement.appendChild(warningText);
+        phoneDiv.appendChild(warningElement);
+        return false;
+    }
+    //return re.test(phoneNumber) ? true : false;
 }
 
 function creditCardValidation() {

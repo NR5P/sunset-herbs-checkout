@@ -42,10 +42,11 @@ input {
     border-radius: 5px;
     background-color: rgb(237, 229, 37);
     display: inline-block;
-    border: none;
+    border: 1px solid black;
 }
 
 textarea {
+    border: 1px solid black;
     border-radius: 5px;
     background-color: rgb(237, 229, 37);
 }
@@ -118,3 +119,10 @@ button {
     color: white;
 }
 
+.good-entry {
+    color: green;
+}
+.bad-entry {
+    color: red;
+    font-size: 1em;
+}
