@@ -1,9 +1,14 @@
 const submitButton = document.getElementById("submitButton");
 const reset = document.getElementById("reset");
+const checkBoxes = document.querySelectorAll("input[type='checkbox']");
+const totalOutput = document.getElementById("total-output");
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
     phoneNumberValidation();
+    creditCardValidation();
+    expirationDateValidation();
+
 };
 
 reset.onclick = function() {
@@ -53,6 +58,7 @@ function phoneNumberValidation() {
                 "phone number MUST be in the format 222-222-2222");
         warningElement.appendChild(warningText);
         phoneDiv.appendChild(warningElement);
+        phoneNumber.focus();
         return false;
     }
     //return re.test(phoneNumber) ? true : false;
@@ -90,9 +96,11 @@ function calculateTotal() {
     let targetPrice = document.getElementsByClassName("price-per-ounce");
 
     Array.from(targetQuantityEntry).forEach(function (element, index) {
-        total += element.value * parseFloat(targetPrice[index].innerText.replace("$", ""));
+        if (element.parentElement.previousElementSibling.children[0].checked) {
+            total += element.value * parseFloat(targetPrice[index].innerText.replace("$", ""));
+        }
     })
-
+    totalOutput.value = total.toFixed(2);
     return total.toFixed(2);
 }
 
