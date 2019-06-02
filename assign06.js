@@ -7,7 +7,7 @@ const firstName = document.getElementById("first_name");
 const lastName = document.getElementById("last_name"); 
 const textarea = document.getElementsByTagName("textarea"); 
 const expDate = document.getElementById("exp-date"); 
-const creditCardNumber = document.getElementsByName("credit_card"); 
+const creditCardNumber = document.getElementsByName("credit_card")[0]; 
 
 const form = document.querySelector("#myForm");
 
@@ -47,7 +47,7 @@ function animateBanner() {
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
-    /* getting done with onsubmit now
+    /* getting done with onsubmit instead now
     phoneNumberValidation();
     creditCardValidation();
     expirationDateValidation();
@@ -107,13 +107,11 @@ function phoneNumberValidation() {
         phoneNumber.style.border = "3px solid green";
 
         const badEntryDiv = document.getElementById("phone-div");
-        console.log(badEntryDiv.children);
         if (badEntryDiv.children[2].className == "bad-entry") {
             badEntryDiv.removeChild(badEntryDiv.children[2]);
         }
         return true;
     } else if (phoneNumber.style.border != "3px solid red" && phoneNumber.style.border != "3px solid green") {
-        console.log(phoneNumber.style.border);
         const phoneDiv = document.getElementById("phone-div");
         phoneNumber.style.border = "3px solid red";
         let warningElement = document.createElement("small");
@@ -129,9 +127,30 @@ function phoneNumberValidation() {
 }
 
 function creditCardValidation() {
-    creditCardNumber[0].value;
-    let re = new RegExp("\d{16}");
-    return re.test(creditCardNumber ? true : false);
+    creditCardNumber.value;
+    if (/^\d{16}$/.test(creditCardNumber.value) == true && creditCardNumber.style.border != "3px solid green") {
+        let cardDiv = document.getElementById("credit-card-div"); 
+        if (creditCardNumber.style.border == "3px solid red");
+            cardDiv.removeChild(cardDiv.children[2]);
+        creditCardNumber.style.border = "3px solid green";
+        //let cardDiv = document.getElementById("credit-card-div");
+        if (cardDiv.children[1].className == "bad-entry") {
+            cardDiv.removeChild(cardDiv.children[2]);
+        }
+    } else if (creditCardNumber.style.border != "3px solid red") {
+        let cardDiv = document.getElementById("credit-card-div"); 
+        creditCardNumber.style.border = "3px solid red";
+        let warningElement = document.createElement("small");
+        warningElement.className += "bad-entry";
+        let warningText = document.createTextNode(
+                "card number must be 16 digits in length");
+        warningElement.appendChild(warningText);
+        cardDiv.appendChild(warningElement);
+        creditCardNumber.focus();
+        //console.log(cardDiv.children[2]);
+        return false;
+    }
+
 }
 
 function expirationDateValidation() {
