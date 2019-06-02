@@ -14,6 +14,37 @@ const form = document.querySelector("#myForm");
 
 let clickedOnce = false;
 
+///////////////////animation////////////////////////////////
+window.onload = function() {
+    animateBanner();
+}
+
+function animateBanner() {
+    let r = 164;
+    let g = 102;
+    let b = 55;
+
+    const banner = document.querySelector("#banner-area");
+    let interval = setInterval(changeSunrise, 25);
+    //banner.style.backgroundImage = "linear-gradient(rgb(237, 229, 37), rgb(164, 102, 55))";
+
+    function changeSunrise() {
+        if (r == 237 && g == 229 && b == 37) {
+            clearInterval(interval);
+        } else {
+            if (r != 237)
+                r++;
+            if (g != 229)
+                g++;
+            if (b != 37)
+                b--;
+        }
+        banner.style.backgroundImage = `linear-gradient(rgb(${r}, ${g}, ${b}), rgb(164, 102, 55))`;
+    }
+}
+
+//////////////////////end animation///////////////////////
+
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
     /* getting done with onsubmit now
@@ -43,6 +74,10 @@ reset.onreset = function() {
 
     firstName.focus();
 };
+
+reset.onclick = function() {
+    firstName.focus();
+}
 
 // adds dash automatically as user types between month and year of exp date
 expDate.oninput = function(e) {
