@@ -2,35 +2,63 @@ const submitButton = document.getElementById("submitButton");
 const reset = document.getElementById("reset");
 const checkBoxes = document.querySelectorAll("input[type='checkbox']");
 const totalOutput = document.getElementById("total-output");
+const phoneInput = document.querySelector("#phone");
+const firstName = document.getElementById("first_name"); 
+const lastName = document.getElementById("last_name"); 
+const textarea = document.getElementsByTagName("textarea"); 
+const expDate = document.getElementById("exp-date"); 
+const creditCardNumber = document.getElementsByName("credit_card"); 
+
+const form = document.querySelector("#myForm");
+
+
+let clickedOnce = false;
 
 ///////////////////////LISTENERS///////////////////////////////////
 submitButton.onclick = function() {
+    /* getting done with onsubmit now
     phoneNumberValidation();
     creditCardValidation();
     expirationDateValidation();
 
+    clickedOnce = true;
+    */
 };
 
-reset.onclick = function() {
-    document.getElementById("first_name").value = "";
-    document.getElementById("last_name").value = "";
-    document.getElementsByTagName("textarea").value = "";
-    document.getElementById("phone").value = "";
+phoneInput.oninput = function() {
+    if (clickedOnce == true)
+        phoneNumberValidation();
+};
+
+reset.onreset = function() {
+    firstName.value = "";
+    lastName.value = "";
+    textarea.value = "";
+    phoneInput.value = "";
     Array.from(document.getElementsByClassName("quantity-entry")).forEach(function(element) {
         element.value = "";
     })
-    document.getElementById("exp-date").value = "";
-    document.getElementsByName("credit_card").value = "";
+    expDate.value = "";
+    creditCardNumber.value = "";
 
-    document.getElementById("first_name").focus();
+    firstName.focus();
 };
 
 // adds dash automatically as user types between month and year of exp date
-document.getElementById("exp-date").oninput = function(e) {
-    expDate = document.getElementById("exp-date");
+expDate.oninput = function(e) {
     if (expDate.value.length == 2 && event.inputType != "deleteContentBackward") {
         expDate.value += "-";
     }
+}
+
+form.onsubmit = function() {
+    phoneNumberValidation();
+    creditCardValidation();
+    expirationDateValidation();
+
+    clickedOnce = true;
+
+    return false;
 }
 
 //////////////////////END LISTENERS///////////////////////////////////
@@ -40,7 +68,7 @@ function phoneNumberValidation() {
     let phoneNumber = document.getElementById("phone");
     //let re = new RegExp("^\d{3}-\d{3}-\d{4}$");
     //let re = "/^\d{3}-\d{3}-\d{4}$/";
-    if (/^\d{3}-\d{3}-\d{4}$/.test(phoneNumber.value) == true) {
+    if (/^\d{3}-\d{3}-\d{4}$/.test(phoneNumber.value) == true && phoneNumber.style.border != "3px solid green") {
         phoneNumber.style.border = "3px solid green";
 
         const badEntryDiv = document.getElementById("phone-div");
@@ -49,7 +77,8 @@ function phoneNumberValidation() {
             badEntryDiv.removeChild(badEntryDiv.children[2]);
         }
         return true;
-    } else {
+    } else if (phoneNumber.style.border != "3px solid red" && phoneNumber.style.border != "3px solid green") {
+        console.log(phoneNumber.style.border);
         const phoneDiv = document.getElementById("phone-div");
         phoneNumber.style.border = "3px solid red";
         let warningElement = document.createElement("small");
@@ -65,13 +94,12 @@ function phoneNumberValidation() {
 }
 
 function creditCardValidation() {
-    let cardNumber = document.getElementsByName("credit_card")[0].value;
+    creditCardNumber[0].value;
     let re = new RegExp("\d{16}");
-    return re.test(cardNumber ? true : false);
+    return re.test(creditCardNumber ? true : false);
 }
 
 function expirationDateValidation() {
-    let expDate = document.getElementById("exp-date");
     let expDateSplit = expDate.value.split("-");
     let expMonth = parseInt(expDateSplit[0]);
     let expYear = parseInt(expDateSplit[1]); //TODO fix this

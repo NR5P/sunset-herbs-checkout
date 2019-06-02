@@ -12,7 +12,7 @@
         </div>
 
         <div id="container">
-        <form>
+        <form id="myForm">
             <div>
                 <label for="first_name">First Name</label>
                 <input type="text" name="first_name" id="first_name" placeholder="John">
@@ -109,13 +109,13 @@
 
             <div id="button-set">
                 <!--clear all fields and set focus to first name-->
-                <button type="reset" name="reset" id="reset">Reset</button>
+                <button type="reset" name="reset" value="Reset" id="reset">Reset</button>
                 
                 <!--Validate that the first name, last name, address, phone, credit card, and 
                     expiration date fields all have been filled out. If any field is missing 
                     text return false and set the focus to the first missing text field. Give 
                     this field the name "validate". -->
-                <button type="button" name="validate" id="submitButton">Submit</button>
+                <button name="validate" id="submitButton">Submit</button>
             </div>
         </form>        
         </div>
